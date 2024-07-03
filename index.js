@@ -29,12 +29,15 @@ const getLocation = async (IP)=>{
     return response
 }
 
+app.get('/', (req, res)=>{
+    res.send('hello hng stage 1')
+})
 app.get('/api/hello', async function(req, res){
     let clientIP = getIP(req)
     let name = req.query.visitor_name
     let location = await getLocation(clientIP)
     let temperature = await getWeatherData(location.city)
-    
+
     res.json({
         client_ip: clientIP,
         location: location.city,
