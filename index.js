@@ -34,7 +34,7 @@ app.get('/api/hello', async function(req, res){
     let name = req.query.visitor_name
     let location = await getLocation(clientIP)
     let temperature = await getWeatherData(location.city)
-    console.log({temperature})
+    
     res.json({
         client_ip: clientIP,
         location: location.city,
